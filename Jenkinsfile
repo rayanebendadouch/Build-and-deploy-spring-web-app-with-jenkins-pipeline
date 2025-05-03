@@ -59,7 +59,7 @@ environment{
          stage('run container') {
 
             steps{
-                bat "docker run -d -p 8082:8082 rayanebendaouch/random-app:latest"
+                bat "docker run -d -p 8080:8082 rayanebendaouch/random-app:latest"
             }
         }
     }
