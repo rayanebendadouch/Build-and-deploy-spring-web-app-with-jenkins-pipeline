@@ -19,6 +19,12 @@ environment{
                 bat "mvn clean compile"
             }
         }
+        stage('OWASP Dependency Check') {
+                    steps {
+                       dependencyCheck additionalArguments: ' --scan ./ ', odcInstallation: 'DP'
+                            dependencyCheckPublisher pattern: '**/dependency-check-report.xml'
+                    }
+                }
          stage('sonar-analysis') {
             steps {
                  withSonarQubeEnv('sonar') {
